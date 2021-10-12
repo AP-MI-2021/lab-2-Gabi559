@@ -30,26 +30,13 @@ def is_superprim(n):
             return False
     return True
 
-def test_is_superprim(n):
-    '''
-    functie test
-    '''
-    t = 1
-    while n > t:
-        t = t * 10
-    t = t // 10
-    while t != 0:
-        prefix = n // t
-        if prim(prefix) == True:
-            t = t // 10
-        else:
-            return False
-    return True
 
-assert test_is_superprim(233) == True
-assert test_is_superprim(237) == False
-assert test_is_superprim(23) == True
-assert test_is_superprim(879) == False
+def test_is_superprim():
+    assert test_is_superprim(233) == True
+    assert test_is_superprim(237) == False
+    assert test_is_superprim(23) == True
+    assert test_is_superprim(879) == False
+
 
 def inversul(n):
     '''
@@ -75,20 +62,18 @@ def is_palindrom(n):
         return True
     else:
         return False
-def test_is_palindrom(n):
-    '''
-    fuctie test
-    '''
-    if inversul(n) == n:
-        return True
-    else:
-        return False
 
-assert test_is_palindrom(233) == False
-assert test_is_palindrom(121) == True
-assert test_is_palindrom(253) == False
-assert test_is_palindrom(552) == False
-assert test_is_palindrom(1881) == True
+
+
+
+def test_is_palindrom():
+    assert test_is_palindrom(233) == False
+    assert test_is_palindrom(121) == True
+    assert test_is_palindrom(253) == False
+    assert test_is_palindrom(552) == False
+    assert test_is_palindrom(1881) == True
+
+
 def get_goldbach(n):
     '''
     determina numere prime p1 si p2 astfel incat n=p1+p2.
@@ -101,25 +86,13 @@ def get_goldbach(n):
     for i in range(3, n // 2, 2):
         if prim(i) == True and prim(n - i) == True:
             return i, n - i
-    return 0,0
-
-def test_get_goldbach(n):
-    '''
-    functie test
-    '''
-    if prim(n - 2) == True:
-        return 2, n - 2
-    i = 3
-    for i in range(3, n // 2, 2):
-        if prim(i) == True and prim(n - i) == True:
-            return i, n - i
-    return 0,0
-
-assert test_get_goldbach(7) == (2, 5)
-assert test_get_goldbach(11) == (0,0)
-assert test_get_goldbach(9) == (2, 7)
-assert test_get_goldbach(4) == (2, 2)
-assert test_get_goldbach(5) == (2, 3)
+    return 0, 0
+def test_get_goldbach():
+    assert test_get_goldbach(7) == (2, 5)
+    assert test_get_goldbach(11) == (0, 0)
+    assert test_get_goldbach(9) == (2, 7)
+    assert test_get_goldbach(4) == (2, 2)
+    assert test_get_goldbach(5) == (2, 3)
 if __name__ == '__main__':
     isRuning = True
     while isRuning == True:
@@ -155,8 +128,8 @@ if __name__ == '__main__':
                 isRuning = False
         if obtiune == '3':
             n = int(input('Dati nr care doriti sa il verificati'))
-            if get_goldbach(n) !=(0,0):
-                print(get_goldbach(n),' sunt numerele p1 si p2 astfel incat n=p1 + p2 ')
+            if get_goldbach(n) != (0, 0):
+                print(get_goldbach(n), ' sunt numerele p1 si p2 astfel incat n=p1 + p2 ')
             else:
                 print('Nu exista 2 numere p1 si p2 astfel incat n=p1+p2')
             print('Doriti sa efectuati alte comenzi?')
